@@ -22,11 +22,11 @@ class Product(models.Model):
     picture = models.URLField(max_length=500, blank=True, null=True)
     is_delete = models.BooleanField(default=False)
 
-    # objects = ProductManager()
-    # all_objects = models.Manager()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
-    # created_at = models.DateTimeField(auto_now_add=True)
-    # updated_at = models.DateTimeField(auto_now=True)
+    objects = ProductManager()
+    all_objects = models.Manager()
 
     def delete(self, using=None, keep_parents=False):
         self.is_delete = True
